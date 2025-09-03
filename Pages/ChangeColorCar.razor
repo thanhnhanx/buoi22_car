@@ -1,0 +1,47 @@
+@page "/change-car-color"
+<PageTitle>Change Car Color</PageTitle>
+
+<h3>Change-Car-Color</h3>
+<div class="container">
+    
+    <div class="row">
+        <div class="col-6">
+            <img src="products/@imgCar" alt="" class="img-fluid" />
+        </div>
+        <div class="col-6">
+            @* Vậy là nó C# blazor sẽ không hiểu được "" và '', chỉ có "" thôi nên không dùng cách dưới *@
+            <button class="btn btn-danger m-2" @onclick="ChangeColorRed" >Red Color</button>
+            <button class="btn btn-secondary m-2" @onclick="ChangeColorSilver">Sliver Color</button>
+            <button class="btn btn-dark m-2" @onclick="ChangeColorBlack">Black Color</button>
+            <button class="btn btn-primary m-2" @onclick="ChangeColorSteel">Steel Color</button>
+
+        </div>
+
+    </div>
+</div>
+@code {
+    private List<string> dscolors = new List<string> { "red", "silver", "black", "steel" };
+    @* ds các màu tương ứng -> chạy vòng lặp để hiện thị button *@
+    private string imgCar = "red-car.jpg";
+    private void ChangeColor(string color)
+    {
+        imgCar = color + "-car.jpg";
+    }
+    private void ChangeColorRed()
+    {
+        imgCar = "red-car.jpg";
+    }
+    private void ChangeColorSilver()
+    {
+        imgCar = "silver-car.jpg";
+    }
+    private void ChangeColorBlack()
+    {
+        imgCar = "black-car.jpg";
+    }
+    private void ChangeColorSteel()
+    {
+        imgCar = "steel-car.jpg";
+    }
+
+}
